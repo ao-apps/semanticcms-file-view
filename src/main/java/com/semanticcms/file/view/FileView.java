@@ -23,6 +23,7 @@
 package com.semanticcms.file.view;
 
 import com.aoindustries.encoding.TextInXhtmlEncoder;
+import com.semanticcms.core.model.Element;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.core.servlet.View;
 import com.semanticcms.core.servlet.impl.ElementFilterTreeImpl;
@@ -88,7 +89,15 @@ public class FileView extends View {
 			request,
 			response,
 			out,
-			File.class,
+			new ElementFilterTreeImpl.ElementFilter() {
+				@Override
+				public boolean matches(Element e) {
+					return
+						(e instanceof File)
+						&& !((File)e).isHidden()
+					;
+				}
+			},
 			page,
 			true
 		);
