@@ -28,6 +28,7 @@ import com.semanticcms.core.model.Page;
 import com.semanticcms.core.servlet.View;
 import com.semanticcms.core.servlet.impl.ElementFilterTreeImpl;
 import com.semanticcms.file.model.File;
+import com.semanticcms.file.servlet.FileUtils;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletContext;
@@ -56,6 +57,11 @@ public class FileView extends View {
 	@Override
 	public String getName() {
 		return VIEW_NAME;
+	}
+
+	@Override
+	public boolean isApplicable(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, Page page) throws ServletException, IOException {
+		return FileUtils.hasFile(servletContext, request, response, page, true);
 	}
 
 	@Override
