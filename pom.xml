@@ -39,15 +39,6 @@ along with semanticcms-file-view.  If not, see <http://www.gnu.org/licenses />.
 	<url>https://semanticcms.com/docs/semanticcms-file-view/</url>
 	<description>SemanticCMS view of all files in the current page and all children.</description>
 
-	<developers>
-		<developer>
-			<name>AO Industries, Inc.</name>
-			<email>support@aoindustries.com</email>
-			<organization>AO Industries, Inc.</organization>
-			<organizationUrl>https://www.aoindustries.com/</organizationUrl>
-		</developer>
-	</developers>
-
 	<scm>
 		<connection>scm:git:git://github.com/aoindustries/semanticcms-file-view.git</connection>
 		<developerConnection>scm:git:git@github.com:aoindustries/semanticcms-file-view.git</developerConnection>
