@@ -95,15 +95,7 @@ public class FileView extends View {
 			request,
 			response,
 			out,
-			new ElementFilterTreeImpl.ElementFilter() {
-				@Override
-				public boolean matches(Element e) {
-					return
-						(e instanceof File)
-						&& !((File)e).isHidden()
-					;
-				}
-			},
+			File.class,
 			page,
 			true
 		);
