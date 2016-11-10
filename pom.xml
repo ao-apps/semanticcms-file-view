@@ -36,13 +36,12 @@ along with semanticcms-file-view.  If not, see <http://www.gnu.org/licenses />.
 	<packaging>jar</packaging>
 
 	<properties>
-		<bookPath>/file/view</bookPath>
 		<shortTitle>View</shortTitle>
 		<description.html><![CDATA[<a target="_top" href="https://semanticcms.com/">SemanticCMS</a> view of all files in the current page and all children.]]></description.html>
 	</properties>
 
 	<name>SemanticCMS File View</name>
-	<url>https://semanticcms.com${bookPath}/</url><!-- Can't inherit due to multi-module -->
+	<url>https://semanticcms.com/file/view/</url>
 	<description>SemanticCMS view of all files in the current page and all children.</description>
 	<inceptionYear>2013</inceptionYear>
 
