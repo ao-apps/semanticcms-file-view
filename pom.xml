@@ -40,7 +40,7 @@ along with semanticcms-file-view.  If not, see <http://www.gnu.org/licenses />.
 		<description.html><![CDATA[<a target="_top" href="https://semanticcms.com/">SemanticCMS</a> view of all files in the current page and all children.]]></description.html>
 	</properties>
 
-	<name>SemanticCMS 1 File View</name>
+	<name>SemanticCMS File View</name>
 	<url>https://semanticcms.com/file/view/</url>
 	<description>SemanticCMS view of all files in the current page and all children.</description>
 	<inceptionYear>2013</inceptionYear>
