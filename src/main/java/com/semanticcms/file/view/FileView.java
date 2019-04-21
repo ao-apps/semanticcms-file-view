@@ -1,6 +1,6 @@
 /*
  * semanticcms-file-view - SemanticCMS view of all files in the current page and all children.
- * Copyright (C) 2013, 2014, 2015, 2016  AO Industries, Inc.
+ * Copyright (C) 2013, 2014, 2015, 2016, 2019  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -23,7 +23,6 @@
 package com.semanticcms.file.view;
 
 import com.aoindustries.encoding.TextInXhtmlEncoder;
-import com.semanticcms.core.model.Element;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.core.servlet.View;
 import com.semanticcms.core.servlet.impl.ElementFilterTreeImpl;
