@@ -25,12 +25,16 @@ package com.semanticcms.file.view;
 import com.aoindustries.html.Html;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.core.renderer.html.ElementFilterTree;
+import com.semanticcms.core.renderer.html.HtmlRenderer;
 import com.semanticcms.core.renderer.html.View;
 import com.semanticcms.file.model.File;
 import com.semanticcms.file.renderer.html.FileUtils;
 import java.io.IOException;
 import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.SkipPageException;
@@ -40,7 +44,21 @@ import javax.servlet.jsp.SkipPageException;
  */
 public class FileView extends View {
 
-	static final String VIEW_NAME = "files";
+	public static final String NAME = "files";
+
+	@WebListener("Registers the \"" + NAME + "\" view in HtmlRenderer.")
+	public static class Initializer implements ServletContextListener {
+		@Override
+		public void contextInitialized(ServletContextEvent event) {
+			HtmlRenderer.getInstance(event.getServletContext()).addView(new FileView());
+		}
+		@Override
+		public void contextDestroyed(ServletContextEvent event) {
+			// Do nothing
+		}
+	}
+
+	private FileView() {}
 
 	@Override
 	public Group getGroup() {
@@ -54,7 +72,7 @@ public class FileView extends View {
 
 	@Override
 	public String getName() {
-		return VIEW_NAME;
+		return NAME;
 	}
 
 	@Override
