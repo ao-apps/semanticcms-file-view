@@ -1,6 +1,6 @@
 /*
  * semanticcms-file-view - SemanticCMS view of all files in the current page and all children.
- * Copyright (C) 2013, 2014, 2015, 2016, 2017, 2019, 2020  AO Industries, Inc.
+ * Copyright (C) 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -22,7 +22,7 @@
  */
 package com.semanticcms.file.view;
 
-import com.aoindustries.html.Html;
+import com.aoindustries.html.Document;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.core.renderer.html.ElementFilterTree;
 import com.semanticcms.core.renderer.html.HtmlRenderer;
@@ -100,16 +100,16 @@ public class FileView extends View {
 	}
 
 	@Override
-	public void doView(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, Html html, Page page) throws ServletException, IOException, SkipPageException {
-		html.out.write("<h1>Files in ");
-		html.text(page.getTitle());
-		html.out.write("</h1>\n");
+	public void doView(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, Document document, Page page) throws ServletException, IOException, SkipPageException {
+		document.out.write("<h1>Files in ");
+		document.text(page.getTitle());
+		document.out.write("</h1>\n");
 		
 		ElementFilterTree.writeElementFilterTreeImpl(
 			servletContext,
 			request,
 			response,
-			html,
+			document,
 			File.class,
 			page,
 			true
