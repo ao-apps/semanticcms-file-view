@@ -22,7 +22,7 @@
  */
 package com.semanticcms.file.view;
 
-import com.aoindustries.html.Document;
+import com.aoindustries.html.FlowContent;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.core.renderer.html.ElementFilterTree;
 import com.semanticcms.core.renderer.html.HtmlRenderer;
@@ -100,8 +100,8 @@ public class FileView extends View {
 	}
 
 	@Override
-	public void doView(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, Document document, Page page) throws ServletException, IOException, SkipPageException {
-		document.h1__(h1 -> h1
+	public <__ extends FlowContent<__>> void doView(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, __ flow, Page page) throws ServletException, IOException, SkipPageException {
+		flow.h1__(h1 -> h1
 			.text("Files in ").text(page.getTitle())
 		).nl();
 		
@@ -109,7 +109,7 @@ public class FileView extends View {
 			servletContext,
 			request,
 			response,
-			document,
+			flow,
 			File.class,
 			page,
 			true
