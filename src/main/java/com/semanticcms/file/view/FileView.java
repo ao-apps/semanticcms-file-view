@@ -22,7 +22,7 @@
  */
 package com.semanticcms.file.view;
 
-import com.aoindustries.html.servlet.FlowContent;
+import com.aoapps.html.servlet.FlowContent;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.core.servlet.SemanticCMS;
 import com.semanticcms.core.servlet.View;
