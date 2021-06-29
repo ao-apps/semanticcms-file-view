@@ -33,6 +33,7 @@ along with semanticcms-file-view.  If not, see <http://www.gnu.org/licenses />.
 	<packaging>bundle</packaging>
 
 	<properties>
+		<module.name>com.semanticcms.file.view</module.name>
 		<javadoc.breadcrumbs><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a>
 / <a target="${javadoc.target}" href="https://semanticcms.com/file/">File</a>
 / <a target="${javadoc.target}" href="${project.url}">View</a>]]></javadoc.breadcrumbs>
@@ -79,6 +80,24 @@ along with semanticcms-file-view.  If not, see <http://www.gnu.org/licenses />.
 		<url>https://github.com/aoindustries/semanticcms-file-view/issues</url>
 	</issueManagement>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
+				<configuration>
+					<usedDependencies>
+						<!-- Direct -->
+						<dependency>com.aoapps:ao-lang</dependency><!-- RequireD for module-info.java -->
+					</usedDependencies>
+					<ignoredDependencies>
+						<!-- No "module-info.java" in some release builds -->
+						<dependency>com.aoapps:ao-collections</dependency>
+					</ignoredDependencies>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 	<profiles>
 		<profile>
 			<id>offlineLinks</id><activation><file><exists>src/main/java</exists></file></activation>
@@ -96,6 +115,11 @@ along with semanticcms-file-view.  If not, see <http://www.gnu.org/licenses />.
 											<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId><classifier>javadoc</classifier>
 											<includes>element-list, package-list</includes>
 											<outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-fluent-html-servlet</outputDirectory>
+										</artifactItem>
+										<artifactItem>
+											<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><classifier>javadoc</classifier>
+											<includes>element-list, package-list</includes>
+											<outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-lang</outputDirectory>
 										</artifactItem>
 										<!-- ao-javadoc-offline: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId> -->
 										<!-- ao-javadoc-offline: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId> -->
@@ -133,6 +157,10 @@ along with semanticcms-file-view.  If not, see <http://www.gnu.org/licenses />.
 									<url>https://oss.aoapps.com/fluent-html/servlet/apidocs/</url>
 									<location>${project.build.directory}/offlineLinks/com.aoapps/ao-fluent-html-servlet</location>
 								</offlineLink>
+								<offlineLink>
+									<url>https://oss.aoapps.com/lang/apidocs/</url>
+									<location>${project.build.directory}/offlineLinks/com.aoapps/ao-lang</location>
+								</offlineLink>
 								<!-- Java EE: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId> -->
 								<!-- Java EE: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId> -->
 								<offlineLink>
@@ -167,6 +195,26 @@ along with semanticcms-file-view.  If not, see <http://www.gnu.org/licenses />.
 				</plugins>
 			</build>
 		</profile>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.felix</groupId><artifactId>maven-bundle-plugin</artifactId>
+						<configuration>
+							<instructions>
+								<!--
+									Releases use "Automatic-Module-Name" instead of "module-info.java"
+									since has direct dependencies that are not yet modularized.
+								-->
+								<Automatic-Module-Name>${module.name}</Automatic-Module-Name>
+								<Private-Package>!.</Private-Package>
+							</instructions>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 	</profiles>
 
 	<dependencyManagement>
@@ -174,6 +222,9 @@ along with semanticcms-file-view.  If not, see <http://www.gnu.org/licenses />.
 			<!-- Direct -->
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId><version>0.5.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<!-- javaee-web-api-bom: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId> -->
 			<!-- javaee-web-api-bom: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId> -->
@@ -213,9 +264,6 @@ along with semanticcms-file-view.  If not, see <http://www.gnu.org/licenses />.
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-io-buffer</artifactId><version>4.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
@@ -269,6 +317,9 @@ along with semanticcms-file-view.  If not, see <http://www.gnu.org/licenses />.
 		<!-- Direct -->
 		<dependency>
 			<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId>
