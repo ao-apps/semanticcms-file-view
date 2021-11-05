@@ -42,7 +42,7 @@ import javax.servlet.jsp.SkipPageException;
 /**
  * View of all files in the current page and all children.
  */
-public class FileView extends View {
+public final class FileView extends View {
 
 	public static final String NAME = "files";
 
@@ -58,7 +58,9 @@ public class FileView extends View {
 		}
 	}
 
-	private FileView() {}
+	private FileView() {
+		// Do nothing
+	}
 
 	@Override
 	public Group getGroup() {
@@ -104,7 +106,7 @@ public class FileView extends View {
 		flow.h1__(h1 -> h1
 			.text("Files in ").text(page.getTitle())
 		);
-		
+
 		ElementFilterTree.writeElementFilterTreeImpl(
 			servletContext,
 			request,
