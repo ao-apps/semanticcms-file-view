@@ -45,77 +45,77 @@ import javax.servlet.jsp.SkipPageException;
  */
 public final class FileView extends View {
 
-	public static final String NAME = "files";
+  public static final String NAME = "files";
 
-	@WebListener("Registers the \"" + NAME + "\" view in SemanticCMS.")
-	public static class Initializer implements ServletContextListener {
-		@Override
-		public void contextInitialized(ServletContextEvent event) {
-			SemanticCMS.getInstance(event.getServletContext()).addView(new FileView());
-		}
-		@Override
-		public void contextDestroyed(ServletContextEvent event) {
-			// Do nothing
-		}
-	}
+  @WebListener("Registers the \"" + NAME + "\" view in SemanticCMS.")
+  public static class Initializer implements ServletContextListener {
+    @Override
+    public void contextInitialized(ServletContextEvent event) {
+      SemanticCMS.getInstance(event.getServletContext()).addView(new FileView());
+    }
+    @Override
+    public void contextDestroyed(ServletContextEvent event) {
+      // Do nothing
+    }
+  }
 
-	private FileView() {
-		// Do nothing
-	}
+  private FileView() {
+    // Do nothing
+  }
 
-	@Override
-	public Group getGroup() {
-		return Group.VARIABLE;
-	}
+  @Override
+  public Group getGroup() {
+    return Group.VARIABLE;
+  }
 
-	@Override
-	public String getDisplay() {
-		return "Files";
-	}
+  @Override
+  public String getDisplay() {
+    return "Files";
+  }
 
-	@Override
-	public String getName() {
-		return NAME;
-	}
+  @Override
+  public String getName() {
+    return NAME;
+  }
 
-	@Override
-	public boolean isApplicable(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, Page page) throws ServletException, IOException {
-		return FileUtils.hasFile(servletContext, request, response, page, true);
-	}
+  @Override
+  public boolean isApplicable(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, Page page) throws ServletException, IOException {
+    return FileUtils.hasFile(servletContext, request, response, page, true);
+  }
 
-	@Override
-	public String getDescription(Page page) {
-		return null;
-	}
+  @Override
+  public String getDescription(Page page) {
+    return null;
+  }
 
-	@Override
-	public String getKeywords(Page page) {
-		return null;
-	}
+  @Override
+  public String getKeywords(Page page) {
+    return null;
+  }
 
-	/**
-	 * This view does not provide additional information unobtainable from source content,
-	 * exclude from search indexes.
-	 */
-	@Override
-	public boolean getAllowRobots(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, Page page) {
-		return false;
-	}
+  /**
+   * This view does not provide additional information unobtainable from source content,
+   * exclude from search indexes.
+   */
+  @Override
+  public boolean getAllowRobots(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, Page page) {
+    return false;
+  }
 
-	@Override
-	public <__ extends FlowContent<__>> void doView(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, __ flow, Page page) throws ServletException, IOException, SkipPageException {
-		flow.h1__(h1 -> h1
-			.text("Files in ").text(page.getTitle())
-		);
+  @Override
+  public <__ extends FlowContent<__>> void doView(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, __ flow, Page page) throws ServletException, IOException, SkipPageException {
+    flow.h1__(h1 -> h1
+      .text("Files in ").text(page.getTitle())
+    );
 
-		ElementFilterTreeImpl.writeElementFilterTreeImpl(
-			servletContext,
-			request,
-			response,
-			flow,
-			File.class,
-			page,
-			true
-		);
-	}
+    ElementFilterTreeImpl.writeElementFilterTreeImpl(
+      servletContext,
+      request,
+      response,
+      flow,
+      File.class,
+      page,
+      true
+    );
+  }
 }
