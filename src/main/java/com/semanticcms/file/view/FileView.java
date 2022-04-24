@@ -53,6 +53,7 @@ public final class FileView extends View {
     public void contextInitialized(ServletContextEvent event) {
       SemanticCMS.getInstance(event.getServletContext()).addView(new FileView());
     }
+
     @Override
     public void contextDestroyed(ServletContextEvent event) {
       // Do nothing
@@ -105,17 +106,17 @@ public final class FileView extends View {
   @Override
   public <__ extends FlowContent<__>> void doView(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, __ flow, Page page) throws ServletException, IOException, SkipPageException {
     flow.h1__(h1 -> h1
-      .text("Files in ").text(page.getTitle())
+            .text("Files in ").text(page.getTitle())
     );
 
     ElementFilterTreeImpl.writeElementFilterTreeImpl(
-      servletContext,
-      request,
-      response,
-      flow,
-      File.class,
-      page,
-      true
+        servletContext,
+        request,
+        response,
+        flow,
+        File.class,
+        page,
+        true
     );
   }
 }
