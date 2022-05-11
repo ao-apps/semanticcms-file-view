@@ -47,6 +47,9 @@ public final class FileView extends View {
 
   public static final String NAME = "files";
 
+  /**
+   * Registers the "{@link #NAME}" view in {@link HtmlRenderer}.
+   */
   @WebListener("Registers the \"" + NAME + "\" view in HtmlRenderer.")
   public static class Initializer implements ServletContextListener {
     @Override
@@ -104,11 +107,16 @@ public final class FileView extends View {
   }
 
   @Override
-  public <__ extends FlowContent<__>> void doView(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, __ flow, Page page) throws ServletException, IOException, SkipPageException {
+  public <__ extends FlowContent<__>> void doView(
+      ServletContext servletContext,
+      HttpServletRequest request,
+      HttpServletResponse response,
+      __ flow,
+      Page page
+  ) throws ServletException, IOException, SkipPageException {
     flow.h1__(h1 -> h1
-            .text("Files in ").text(page.getTitle())
+        .text("Files in ").text(page.getTitle())
     );
-
     ElementFilterTree.writeElementFilterTreeImpl(
         servletContext,
         request,
