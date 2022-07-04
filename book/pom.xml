@@ -36,15 +36,15 @@ along with semanticcms-file-view.  If not, see <https://www.gnu.org/licenses/>.
     <module.name>com.semanticcms.file.view.book</module.name>
     <!-- These values are copied from the project being documented -->
     <documented.artifactId>semanticcms-file-view</documented.artifactId>
-    <documented.name>SemanticCMS File View²</documented.name>
+    <documented.name>SemanticCMS File View</documented.name>
     <documented.description>SemanticCMS view of all files in the current page and all children.</documented.description>
 
     <description.html><![CDATA[Documentation for <a target="${javadoc.target}" href="${project.url}">${documented.name}</a> in <a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> format.]]></description.html>
   </properties>
 
-  <name>SemanticCMS File View² Book</name>
+  <name>SemanticCMS File View Book</name>
   <url>https://semanticcms.com/file/view/</url>
-  <description>Documentation for SemanticCMS File View² in SemanticCMS format.</description>
+  <description>Documentation for SemanticCMS File View in SemanticCMS format.</description>
   <inceptionYear>2013</inceptionYear>
 
   <licenses>

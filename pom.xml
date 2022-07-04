@@ -46,7 +46,7 @@ along with semanticcms-file-view.  If not, see <https://www.gnu.org/licenses/>.
     <sonar.coverage.exclusions>**.*</sonar.coverage.exclusions>
   </properties>
 
-  <name>SemanticCMS File View²</name>
+  <name>SemanticCMS File View</name>
   <url>https://semanticcms.com/file/view/</url>
   <description>SemanticCMS view of all files in the current page and all children.</description>
   <inceptionYear>2013</inceptionYear>
