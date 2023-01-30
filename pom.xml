@@ -117,10 +117,6 @@ along with semanticcms-file-view.  If not, see <https://www.gnu.org/licenses/>.
       <plugin>
         <groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
         <configuration>
-          <usedDependencies>
-            <!-- Direct -->
-            <dependency>com.aoapps:ao-lang</dependency><!-- RequireD for module-info.java -->
-          </usedDependencies>
           <ignoredDependencies>
             <!-- No "module-info.java" in some release builds -->
             <dependency>com.aoapps:ao-collections</dependency>
@@ -147,11 +143,6 @@ along with semanticcms-file-view.  If not, see <https://www.gnu.org/licenses/>.
                       <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId><classifier>javadoc</classifier>
                       <includes>element-list, package-list</includes>
                       <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-fluent-html-servlet</outputDirectory>
-                    </artifactItem>
-                    <artifactItem>
-                      <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><classifier>javadoc</classifier>
-                      <includes>element-list, package-list</includes>
-                      <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-lang</outputDirectory>
                     </artifactItem>
                     <!-- ao-javadoc-offline: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><classifier>javadoc</classifier> -->
                     <!-- ao-javadoc-offline: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId><classifier>javadoc</classifier> -->
@@ -188,10 +179,6 @@ along with semanticcms-file-view.  If not, see <https://www.gnu.org/licenses/>.
                 <offlineLink>
                   <url>https://oss.aoapps.com/fluent-html/servlet/apidocs/</url>
                   <location>${project.build.directory}/offlineLinks/com.aoapps/ao-fluent-html-servlet</location>
-                </offlineLink>
-                <offlineLink>
-                  <url>https://oss.aoapps.com/lang/apidocs/</url>
-                  <location>${project.build.directory}/offlineLinks/com.aoapps/ao-lang</location>
                 </offlineLink>
                 <!-- ao-javadoc-offline: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><classifier>javadoc</classifier> -->
                 <!-- ao-javadoc-offline: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId><classifier>javadoc</classifier> -->
@@ -245,9 +232,6 @@ along with semanticcms-file-view.  If not, see <https://www.gnu.org/licenses/>.
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId><version>0.7.0${POST-SNAPSHOT}</version>
       </dependency>
-      <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.2.0${POST-SNAPSHOT}</version>
-      </dependency>
       <!-- javaee-web-api-bom: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId> -->
       <!-- javaee-web-api-bom: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId> -->
       <dependency>
@@ -286,6 +270,9 @@ along with semanticcms-file-view.  If not, see <https://www.gnu.org/licenses/>.
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-io-buffer</artifactId><version>4.1.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.2.0${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>2.0.2${POST-SNAPSHOT}</version>
@@ -340,9 +327,6 @@ along with semanticcms-file-view.  If not, see <https://www.gnu.org/licenses/>.
     <!-- Direct -->
     <dependency>
       <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId>
