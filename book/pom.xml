@@ -41,6 +41,9 @@ along with semanticcms-file-view.  If not, see <https://www.gnu.org/licenses/>.
     <documented.artifactId>semanticcms-file-view</documented.artifactId>
     <documented.name>SemanticCMS File View</documented.name>
     <documented.description>SemanticCMS view of all files in the current page and all children.</documented.description>
+    <javadoc.breadcrumbs><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a>
+/ <a target="${javadoc.target}" href="https://semanticcms.com/file/">File</a>
+/ <a target="${javadoc.target}" href="${project.url}">View</a>]]></javadoc.breadcrumbs>
 
     <description.html><![CDATA[Documentation for <a target="${javadoc.target}" href="${project.url}">${documented.name}</a> in <a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> format.]]></description.html>
     <!-- SonarQube -->
