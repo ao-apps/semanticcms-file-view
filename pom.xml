@@ -175,11 +175,6 @@ along with semanticcms-file-view.  If not, see <https://www.gnu.org/licenses/>.
                       <includes>element-list, package-list</includes>
                       <outputDirectory>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-file-servlet</outputDirectory>
                     </artifactItem>
-                    <artifactItem>
-                      <groupId>com.github.spotbugs</groupId><artifactId>spotbugs-annotations</artifactId><classifier>javadoc</classifier>
-                      <includes>element-list, package-list</includes>
-                      <outputDirectory>${project.build.directory}/offlineLinks/com.github.spotbugs/spotbugs-annotations</outputDirectory>
-                    </artifactItem>
                   </artifactItems>
                 </configuration>
               </execution>
@@ -219,10 +214,6 @@ along with semanticcms-file-view.  If not, see <https://www.gnu.org/licenses/>.
                 <offlineLink>
                   <url>https://semanticcms.com/file/servlet/apidocs/</url>
                   <location>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-file-servlet</location>
-                </offlineLink>
-                <offlineLink>
-                  <url>https://javadoc.io/doc/com.github.spotbugs/spotbugs-annotations/${com.github.spotbugs:spotbugs-annotations:jar.version}/</url>
-                  <location>${project.build.directory}/offlineLinks/com.github.spotbugs/spotbugs-annotations</location>
                 </offlineLink>
               </offlineLinks>
             </configuration>
@@ -304,9 +295,6 @@ along with semanticcms-file-view.  If not, see <https://www.gnu.org/licenses/>.
       </dependency>
       <dependency>
         <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-servlet</artifactId><version>1.10.1${POST-SNAPSHOT}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.github.spotbugs</groupId><artifactId>spotbugs-annotations</artifactId><version>4.9.2</version>
       </dependency>
       <!-- Transitive -->
       <dependency>
@@ -407,10 +395,6 @@ along with semanticcms-file-view.  If not, see <https://www.gnu.org/licenses/>.
     </dependency>
     <dependency>
       <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-servlet</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.github.spotbugs</groupId><artifactId>spotbugs-annotations</artifactId>
-      <optional>true</optional>
     </dependency>
   </dependencies>
 </project>
