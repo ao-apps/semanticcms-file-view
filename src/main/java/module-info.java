@@ -21,7 +21,6 @@
  * along with semanticcms-file-view.  If not, see <https://www.gnu.org/licenses/>.
  */
 module com.semanticcms.file.view {
-  exports com.semanticcms.file.view;
   // Direct
   requires com.aoapps.html.any; // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any</artifactId>
   requires com.aoapps.html.servlet; // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId>
@@ -32,4 +31,6 @@ module com.semanticcms.file.view {
   requires com.semanticcms.core.servlet; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId>
   requires com.semanticcms.file.model; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-model</artifactId>
   requires com.semanticcms.file.servlet; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-servlet</artifactId>
+
+  exports com.semanticcms.file.view;
 }
